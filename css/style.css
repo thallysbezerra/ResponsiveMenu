@@ -1,0 +1,212 @@
+/* Interface - Mobile */
+
+.fa:before {
+  font-family: FontAwesome;
+}
+
+header .bgMenu {
+  height: 80px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+  text-align: right;
+}
+
+header.fixedMenu {
+    position: fixed;
+    width: 100%;
+}
+
+.navMenu {
+  z-index: -1;
+  position: relative;
+}
+
+.navMenu.fadeInDown {
+  animation-duration: .5s;
+}
+
+.linksMenu {
+  display: none;
+  list-style: none;
+  margin: -4px 0 0;
+  padding: 0;
+}
+
+.linksMenu.showMenu {
+  display: block;
+  background-color: #148dcd;
+  padding-top: 2em;
+  margin-top: -2.25em;
+}
+
+.linksMenu a {
+  color: #fff;
+  text-align: left;
+  font: 1.25em Oswald;
+  padding: .8em;
+  display: block;
+  text-decoration: none;
+}
+
+.linksMenu a:before {
+  margin: 0 1em 0 .25em;
+}
+
+.linksMenu li:nth-child(1) a {
+  background-color: rgba(0,116,166,.4);
+}
+
+.linksMenu li:nth-child(2) a {
+  background-color: rgba(0,116,166,.55);
+}
+
+.linksMenu li:nth-child(3) a {
+  background-color: rgba(0,116,166,.7);
+}
+
+.linksMenu li:nth-child(4) a {
+  background-color: rgba(0,116,166,.85);
+}
+
+.linksMenu li:nth-child(5) a {
+  background-color: rgba(0,116,166,1);
+}
+
+.burgerMenu {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #148dcd;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 15px;
+}
+
+.burger {
+  top: 22px;
+  right: 10px;
+  opacity: 1;
+}
+
+.burger::before {
+  top: 10px;
+  content: "";
+  display: block;
+}
+
+.burger::after {
+  bottom: 10px;
+  content: "";
+  display: block;
+}
+
+.burger::after, .burger::before, .burger {
+  transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  background-color: #fff;
+  border-radius: 2px;
+  width: 29px;
+  height: 5px;
+  position: absolute;
+}
+
+/* Shade from Burger Menu */
+
+.bgShade {
+  background-color: rgba(0,0,0,.75);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  visibility: hidden;
+  transition: .25s linear;
+  opacity: 0;
+}
+
+.bgShade.showShade {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bgShade.hideShade {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Scroll locked */
+
+body.bodyStopped {
+  overflow: hidden;
+}
+
+/* Transition from Burger menu to X */
+
+.burgerMenu.showMenu .burger::after{
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  bottom: 0px;
+}
+
+.burgerMenu.showMenu .burger::before{
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  top: 0px;
+}
+
+.burgerMenu.showMenu .burger{
+  background: rgba(111,111,111,.0);
+}
+
+/* Interface - Desktop */
+
+@media screen and (min-width: 768px) {
+
+  header .bgMenu {
+    background-color: rgba(20,141,205,1);
+  }
+    
+  div.burgerMenu {
+    display: none;
+  }
+
+  .navMenu {
+    z-index: 0;
+  }
+
+  .linksMenu {
+    display: block;
+    text-align: center;
+  }
+
+  .linksMenu li {
+    display: inline-block;
+  }
+
+  .navMenu .linksMenu li a {
+    background-color: transparent;
+    color: #0c547b;
+    font-size: 1.5em;
+    padding: 22px 1.2em 24px .8em;
+    transition: .25s;
+  }
+
+  .navMenu .linksMenu li a:hover {
+    color: #fff;
+  }
+
+  .navMenu.bounceOutUp {
+    animation-name: unset;
+  }
+
+  .figureProfile.animated.zoomInUp img {
+    max-width: inherit;
+    width: 360px;
+  }
+
+  .bgShade.fadeIn,
+  .bgShade.fadeOut {
+    display: none;
+  }
+}
